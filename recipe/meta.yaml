@@ -17,16 +17,21 @@ source:
 build:
   number: {{ build }}
   string: >-
-    nompi_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no']
-    mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no']
-    nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes']
-    mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes']
+    nompi_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda == 'no']
+    mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no' and cuda == 'no']
+    nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda == 'no']
+    mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda == 'no']
+    nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda != 'no']
+    mpi_{{ mpi }}_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no' and cuda != 'no']
+    nompi_cuda_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda != 'no']
+    mpi_{{ mpi }}_cuda_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda != 'no']
   skip: True  # [win]
 
 requirements:
   build:
     - make
     - {{ compiler('cxx') }}
+    - {{ compiler('cuda') }} # [not osx and cuda != 'no']
     - cmake >3.13
     - pocl
     - python >3.5
@@ -46,6 +51,7 @@ requirements:
     - fftw
     - libhwloc 2.*
     - {{ mpi }}  # [mpi != 'nompi']
+    - __cuda # [not osx and cuda != 'no']
 
 test:
   commands:

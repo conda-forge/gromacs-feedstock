@@ -28,7 +28,7 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
     -DGMX_VERSION_STRING_OF_FORK="conda-forge"
   )
   # OpenCL header on Mac is not recognized by GROMACS
-  if [ "$(uname)" != 'Darwin' ] ; then
+  if [[ "$(uname)" != 'Darwin' && "${double}" == "no" ]] ; then
       cmake_args+=(-DGMX_GPU=OpenCL)
   fi
   if [[ "${mpi}" == "nompi" ]]; then
@@ -41,6 +41,9 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
       cmake_args+=(-DGMX_GPU=OFF)
   else
       cmake_args+=(-DGMX_DOUBLE=OFF)
+  fi
+  if [[ "${cuda}" != "no" ]]; then
+      cmake_args+=(-DGMX_GPU="${cuda}")
   fi
   cmake .. "${cmake_args[@]}"
   make -j "${CPU_COUNT}"

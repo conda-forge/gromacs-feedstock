@@ -4,3 +4,6 @@ mpi:
 double:
   - no
   - yes
+cuda:
+  - 11.6 # [not osx and mpi == 'nompi' and double == 'no' ]
+  - no
