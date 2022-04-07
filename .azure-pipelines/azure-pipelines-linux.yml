@@ -8,22 +8,54 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_doublenompinompi:
-        CONFIG: linux_64_doublenompinompi
+      linux_64_cxx_compiler_version10doublenompinompi:
+        CONFIG: linux_64_cxx_compiler_version10doublenompinompi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_doublenompiopenmpi:
-        CONFIG: linux_64_doublenompiopenmpi
+      linux_64_cxx_compiler_version10doublenompiopenmpi:
+        CONFIG: linux_64_cxx_compiler_version10doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_doubleyesmpinompi:
-        CONFIG: linux_64_doubleyesmpinompi
+      linux_64_cxx_compiler_version10doubleyesmpinompi:
+        CONFIG: linux_64_cxx_compiler_version10doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-      linux_64_doubleyesmpiopenmpi:
-        CONFIG: linux_64_doubleyesmpiopenmpi
+      linux_64_cxx_compiler_version10doubleyesmpiopenmpi:
+        CONFIG: linux_64_cxx_compiler_version10doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
+      linux_64_cxx_compiler_version7doublenompinompi:
+        CONFIG: linux_64_cxx_compiler_version7doublenompinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
+      linux_64_cxx_compiler_version7doublenompiopenmpi:
+        CONFIG: linux_64_cxx_compiler_version7doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
+      linux_64_cxx_compiler_version7doubleyesmpinompi:
+        CONFIG: linux_64_cxx_compiler_version7doubleyesmpinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
+      linux_64_cxx_compiler_version7doubleyesmpiopenmpi:
+        CONFIG: linux_64_cxx_compiler_version7doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-cuda:10.2
+      linux_64_cxx_compiler_version9doublenompinompi:
+        CONFIG: linux_64_cxx_compiler_version9doublenompinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cxx_compiler_version9doublenompiopenmpi:
+        CONFIG: linux_64_cxx_compiler_version9doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cxx_compiler_version9doubleyesmpinompi:
+        CONFIG: linux_64_cxx_compiler_version9doubleyesmpinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
+      linux_64_cxx_compiler_version9doubleyesmpiopenmpi:
+        CONFIG: linux_64_cxx_compiler_version9doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.0
   timeoutInMinutes: 360
 
   steps:

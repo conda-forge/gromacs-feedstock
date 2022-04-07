@@ -1,5 +1,5 @@
-MACOSX_DEPLOYMENT_TARGET:
-- '10.9'
+cdt_name:
+- cos7
 channel_sources:
 - conda-forge
 channel_targets:
@@ -7,17 +7,15 @@ channel_targets:
 cuda:
 - 'no'
 cxx_compiler:
-- clangxx
+- gxx
 cxx_compiler_version:
-- '12'
+- '9'
+docker_image:
+- quay.io/condaforge/linux-anvil-cuda:11.0
 double:
 - 'yes'
 fftw:
 - '3'
-llvm_openmp:
-- '12'
-macos_machine:
-- x86_64-apple-darwin13.4.0
 mpi:
 - nompi
 mpich:
@@ -30,4 +28,8 @@ pin_run_as_build:
   fftw:
     max_pin: x
 target_platform:
-- osx-64
+- linux-64
+zip_keys:
+- - cxx_compiler_version
+  - cdt_name
+  - docker_image
