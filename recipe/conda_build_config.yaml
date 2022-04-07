@@ -4,6 +4,3 @@ mpi:
 double:
   - no
   - yes
-cuda:
-  - 11.6 # [not osx]
-  - no
