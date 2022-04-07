@@ -22,16 +22,14 @@ build:
     nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda == 'no']
     mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda == 'no']
     nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda != 'no']
-    mpi_{{ mpi }}_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no' and cuda != 'no']
-    nompi_cuda_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda != 'no']
-    mpi_{{ mpi }}_cuda_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda != 'no']
   skip: True  # [win]
+  skip: True  # [cuda != 'no' and mpi == 'mpi' and double == 'yes']
 
 requirements:
   build:
     - make
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }} # [not osx and cuda != 'no']
+    - {{ compiler('cuda') }}  # [not osx and cuda != 'no']
     - cmake >3.13
     - pocl
     - python >3.5
@@ -51,7 +49,7 @@ requirements:
     - fftw
     - libhwloc 2.*
     - {{ mpi }}  # [mpi != 'nompi']
-    - __cuda # [not osx and cuda != 'no']
+    - __cuda  # [not osx and cuda != 'no']
 
 test:
   commands:
