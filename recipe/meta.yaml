@@ -36,6 +36,7 @@ requirements:
     - perl
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
+    - coreutils  # [cuda_compiler_version != "None"]
   host:
     - ocl-icd  # [linux]
     - khronos-opencl-icd-loader  # [osx]
