@@ -4,8 +4,6 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-cuda:
-- '11.6'
 cuda_compiler:
 - nvcc
 cuda_compiler_version:
@@ -17,7 +15,7 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-cuda:10.2
 double:
-- 'no'
+- 'yes'
 fftw:
 - '3'
 mpi:
