@@ -38,6 +38,7 @@ requirements:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - coreutils  # [cuda_compiler_version != "None"]
+    - {{ pin_compatible('cudatoolkit', min_pin='11.2') }}  # [not osx and cuda_compiler_version != "None"]
   host:
     - ocl-icd  # [linux]
     - khronos-opencl-icd-loader  # [osx]
