@@ -1,19 +1,25 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-cuda_compiler:
-- nvcc
 cuda_compiler_version:
-- '10.2'
+- None
 cxx_compiler:
-- vs2017
+- clangxx
+cxx_compiler_version:
+- '12'
 double:
-- 'no'
+- 'yes'
 fftw:
 - '3'
+llvm_openmp:
+- '12'
+macos_machine:
+- x86_64-apple-darwin13.4.0
 mpi:
-- nompi
+- openmpi
 mpich:
 - '4'
 openmpi:
@@ -24,4 +30,4 @@ pin_run_as_build:
   fftw:
     max_pin: x
 target_platform:
-- win-64
+- osx-64
