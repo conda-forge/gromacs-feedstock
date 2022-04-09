@@ -43,7 +43,7 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
       cmake_args+=(-DGMX_DOUBLE=OFF)
   fi
   if [[ "${cuda_compiler_version}" != "None" ]]; then
-      cmake_args+=(-DGMX_GPU="${cuda_compiler_version}")
+      cmake_args+=(-DGMX_GPU=CUDA)
   fi
   cmake .. "${cmake_args[@]}"
   make -j "${CPU_COUNT}"
