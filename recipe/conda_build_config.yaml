@@ -4,6 +4,3 @@ mpi:
 double:
   - no
   - yes
-cuda_compiler_version:  # [linux]
-  - 11.2  # [linux]
-  - None  # [linux]
