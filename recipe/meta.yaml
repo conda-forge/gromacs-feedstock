@@ -22,7 +22,8 @@ build:
     nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version != "None"]
-  skip: True  # [win or cuda_compiler_version not in ("10.2", "None")]
+  skip: True  # [win or cuda_compiler_version not in ("11.2", "None")]
+  skip: True  # [cuda_compiler_version != "None" and double == "yes"]
 
 requirements:
   build:
