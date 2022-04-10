@@ -4,6 +4,6 @@ mpi:
 double:
   - no
   - yes
-cuda_compiler_version:  # [linux]
-  - 11.2  # [linux]
-  - None  # [linux]
+cuda_compiler_version:  # [linux and cxx_compiler_version>7 and double="no"]
+  - 11.2  # [linux and cxx_compiler_version>7 and double="no"]
+  - None  # [linux and cxx_compiler_version>7 and double="no"]
