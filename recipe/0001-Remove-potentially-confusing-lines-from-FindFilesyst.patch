@@ -1,12 +1,46 @@
-From 2ad9c0a4835aed9ee1a615d7eb64a1e55d946f0f Mon Sep 17 00:00:00 2001
+From abbec31d0bb70ec1da68701c61e92d133fdbc84b Mon Sep 17 00:00:00 2001
 From: Mark Abraham <mark.j.abraham@gmail.com>
 Date: Mon, 24 Apr 2023 11:59:00 +0200
-Subject: [PATCH] Remove potentially confusing lines from FindFilesystem.cmake
+Subject: [PATCH] Improve use of FindFilesystem.cmake
 
 ---
- src/external/cmake/FindFilesystem.cmake | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ cmake/FindLibStdCpp.cmake               | 11 +++++++----
+ src/external/cmake/FindFilesystem.cmake |  6 +++---
+ 2 files changed, 10 insertions(+), 7 deletions(-)
 
+diff --git a/cmake/FindLibStdCpp.cmake b/cmake/FindLibStdCpp.cmake
+index 3c35cdee05..9f2676d18f 100644
+--- a/cmake/FindLibStdCpp.cmake
++++ b/cmake/FindLibStdCpp.cmake
+@@ -177,7 +177,7 @@ endif()
+ # Maybe we just need to link an extra library for std::filesystem, perhaps via
+ # the --gcc-toolchain that was just set up.
+ find_package(Filesystem)
+-if(CXX_FILESYSTEM_HAVE_FS)
++if(CXX_FILESYSTEM_HAVE_FS AND TARGET std::filesystem)
+     cmake_push_check_state()
+     get_target_property(CMAKE_REQUIRED_LIBRARIES std::filesystem INTERFACE_LINK_LIBRARIES)
+     check_cxx_source_compiles("${SAMPLE_CODE_TO_TEST_CXX17}" CXX17_COMPILES_WHEN_LINKING_FS_LIBRARY)
+@@ -187,13 +187,16 @@ if(CXX_FILESYSTEM_HAVE_FS)
+         # If we reach here, then we know that GROMACS targets need to
+         # link the std::filesystem target when such a library was found.
+         return()
+-    else()
+-        set(EXTRA_MESSAGE " even though a library for std::filesystem was found")
+     endif()
+ endif()
+ 
++if(CXX_FILESYSTEM_HAVE_FS)
++    set(EXTRA_MESSAGE " even though a header for std::filesystem was found")
++endif()
++
+ if (NOT USING_LIBSTDCXX)
+-    # Just linking an extra library for std::filesystem didn't help,
++    # Either std::filesystem wasn't found by the CMake module, or just
++    # linking an extra library for std::filesystem didn't help,
+     # so let's try to narrow down what fails.
+     check_cxx_source_compiles("${SAMPLE_CODE_TO_TEST_CXX17_WITHOUT_STD_FILESYSTEM}" CXX17_COMPILES_WITHOUT_STD_FILESYSTEM)
+     if (NOT CXX17_COMPILES_WITHOUT_STD_FILESYSTEM)
 diff --git a/src/external/cmake/FindFilesystem.cmake b/src/external/cmake/FindFilesystem.cmake
 index a152e52293..3bd39619ef 100755
 --- a/src/external/cmake/FindFilesystem.cmake
