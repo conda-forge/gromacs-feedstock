@@ -46,7 +46,7 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
   if [[ "${cuda_compiler_version}" != "None" ]]; then
       cmake_args+=(-DGMX_GPU=CUDA)
   fi
-  cmake .. "${cmake_args[@]}" || (cmake --debug-trycompile .. "${cmake_args[0]}"; ls -l CMakeFiles; echo "sub"; ls -l CMakeFiles/3.26.3; echo "sub2"; ls -l CMakeFiles/CMakeScratch; find CMakeFiles -name "*.log")
+  cmake .. "${cmake_args[@]}" || (cmake --debug-trycompile .. "${cmake_args[0]}"; ls -l CMakeFiles; echo "sub"; ls -l CMakeFiles/3.26.3; echo "sub2"; ls -l CMakeFiles/CMakeScratch; cat CMakeFiles/CMakeConfigureLog.yaml; find CMakeFiles -name "*.log")
   make -j "${CPU_COUNT}"
   make install
 done
