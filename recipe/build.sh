@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# gromacs > 2021 requires a non default OSX version
-#if [ "$(uname)" = 'Darwin' ] ; then
-#    export MACOSX_DEPLOYMENT_TARGET=10.13 
-#fi
-
-
 mkdir build
 cd build
 
@@ -20,7 +14,6 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
     # Tests are not currently run, so do not download them
     # -DREGRESSIONTEST_DOWNLOAD=ON
     -DCMAKE_PREFIX_PATH="${PREFIX}"
-    -DGMX_INSTALL_PREFIX="${PREFIX}"
     -DCMAKE_INSTALL_PREFIX="${PREFIX}"
     -DGMX_SIMD="${ARCH}"
     -DCMAKE_INSTALL_BINDIR="bin.${ARCH}"
@@ -47,9 +40,15 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
       cmake_args+=(-DGMX_GPU=CUDA)
   fi
   if [[ "$(uname)" == 'Darwin' ]] ; then
+      # The clang compiler used on MacOS assumes the system libc++ is
+      # in use, and because conda targets a very old platform, that
+      # fails tests for C++17. However conda will later provide its
+      # own full-featured libc++, so we can use some magic to make the
+      # compiler checks pass. See
+      # https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
       cmake_args+=(-DCMAKE_CXX_FLAGS='-D_LIBCPP_DISABLE_AVAILABILITY')
   fi
-  cmake .. "${cmake_args[@]}" || (ls -l CMakeFiles; echo "sub"; ls -l CMakeFiles/3.26.3; echo "sub2"; ls -l CMakeFiles/CMakeScratch; cat CMakeFiles/CMakeConfigureLog.yaml; find CMakeFiles -name "*.log")
+  cmake .. "${cmake_args[@]}"
   make -j "${CPU_COUNT}"
   make install
 done
