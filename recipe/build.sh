@@ -46,6 +46,9 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
   if [[ "${cuda_compiler_version}" != "None" ]]; then
       cmake_args+=(-DGMX_GPU=CUDA)
   fi
+  if [[ "$(uname)" == 'Darwin' ]] ; then
+      cmake_args+=(-DCMAKE_CXX_FLAGS='-D_LIBCPP_DISABLE_AVAILABILITY')
+  fi
   cmake .. "${cmake_args[@]}" || (ls -l CMakeFiles; echo "sub"; ls -l CMakeFiles/3.26.3; echo "sub2"; ls -l CMakeFiles/CMakeScratch; cat CMakeFiles/CMakeConfigureLog.yaml; find CMakeFiles -name "*.log")
   make -j "${CPU_COUNT}"
   make install
