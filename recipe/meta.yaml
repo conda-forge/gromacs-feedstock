@@ -23,6 +23,8 @@ build:
     mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version != "None"]
   skip: true  # [win]
+  # GROMACS only supports CUDA 11.0 or more recent 
+  skip: true  # [cuda_compiler_version not "None" and float(cuda_compiler_version) < 11.0]
   skip: true  # [mpi == "openmpi" and cuda_compiler_version != "None"]
   skip: true  # [double == "yes" and cuda_compiler_version != "None"]
 
