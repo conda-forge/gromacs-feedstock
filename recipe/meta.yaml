@@ -48,6 +48,7 @@ requirements:
     - libhwloc 2.*
     - fftw
     - {{ mpi }}  # [mpi != 'nompi']
+    - libcufft-dev # [cuda_compiler_version != "None" and float(cuda_compiler_version) >= 12]
   run:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
     - khronos-opencl-icd-loader  # [osx]
