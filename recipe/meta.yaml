@@ -3,7 +3,7 @@
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
 {% set version = "2023.1" %}
-{% set build = 1 %}
+{% set build = 2 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
 package:
@@ -13,6 +13,9 @@ package:
 source:
   url: https://ftp.gromacs.org/gromacs/gromacs-{{ version }}.tar.gz
   sha256: eef2bb4a6cb6314cf9da47f26df2a0d27af4bf7b3099723d43601073ab0a42f4
+  patches:
+     - 0001-Fix-GMX_NVCC_WORKS.patch
+     - 0001-Add-GMX_BYPASS_NVCC_FLAG_TESTS.patch
 
 build:
   number: {{ build }}
@@ -22,7 +25,9 @@ build:
     nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version != "None"]
-  skip: true  # [win or cuda_compiler_version not in ("11.2", "None")]
+  skip: true  # [win]
+  # GROMACS only supports CUDA 11.0 or more recent 
+  skip: true  # [cuda_compiler_version != "None" and float(cuda_compiler_version) < 11.0]
   skip: true  # [mpi == "openmpi" and cuda_compiler_version != "None"]
   skip: true  # [double == "yes" and cuda_compiler_version != "None"]
 
@@ -44,6 +49,7 @@ requirements:
     - libhwloc 2.*
     - fftw
     - {{ mpi }}  # [mpi != 'nompi']
+    - libcufft-dev  # [cuda_compiler_version != "None" and float(cuda_compiler_version) >= 12]
   run:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
     - khronos-opencl-icd-loader  # [osx]

@@ -1,0 +1,25 @@
+From 867bfe7e7ab77f6d3226b2df1ad2c2408d6e3f26 Mon Sep 17 00:00:00 2001
+From: Mark Abraham <mark.j.abraham@gmail.com>
+Date: Mon, 5 Jun 2023 12:46:21 -0700
+Subject: [PATCH] Fix GMX_NVCC_WORKS
+
+---
+ cmake/gmxManageNvccConfig.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/gmxManageNvccConfig.cmake b/cmake/gmxManageNvccConfig.cmake
+index a5dd840305..56d93ab726 100644
+--- a/cmake/gmxManageNvccConfig.cmake
++++ b/cmake/gmxManageNvccConfig.cmake
+@@ -89,7 +89,7 @@ endif()
+ # will further affect the limited portability of this checking
+ # code. Set the CMake variable GMX_NVCC_WORKS on if you want to
+ # bypass this check.
+-if((_cuda_nvcc_executable_or_flags_changed OR CUDA_HOST_COMPILER_CHANGED OR NOT GMX_NVCC_WORKS) AND NOT WIN32)
++if((_cuda_nvcc_executable_or_flags_changed OR CUDA_HOST_COMPILER_CHANGED) AND NOT GMX_NVCC_WORKS AND NOT WIN32)
+     message(STATUS "Check for working NVCC/C++ compiler combination with nvcc '${CUDA_NVCC_EXECUTABLE}'")
+     execute_process(COMMAND ${CUDA_NVCC_EXECUTABLE} --compiler-bindir=${CUDA_HOST_COMPILER} -c ${CUDA_NVCC_FLAGS} ${CUDA_NVCC_FLAGS_${_build_type}} ${CMAKE_SOURCE_DIR}/cmake/TestCUDA.cu
+         RESULT_VARIABLE _cuda_test_res
+-- 
+2.35.3
+
