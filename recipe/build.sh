@@ -37,7 +37,7 @@ for ARCH in SSE2 AVX_256 AVX2_256; do
       cmake_args+=(-DGMX_DOUBLE=OFF)
   fi
   if [[ "${cuda_compiler_version}" != "None" ]]; then
-      cmake_args+=(-DGMX_GPU=CUDA -DGMX_NVCC_WORKS=true)
+      cmake_args+=(-DGMX_GPU=CUDA -DGMX_NVCC_WORKS=true -DGMX_BYPASS_NVCC_FLAG_TESTS=true)
   fi
   if [[ "$(uname)" == 'Darwin' ]] ; then
       # The clang compiler used on MacOS assumes the system libc++ is
