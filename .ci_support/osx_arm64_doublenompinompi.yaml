@@ -1,0 +1,30 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '11.0'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+cuda_compiler_version:
+- None
+cxx_compiler:
+- clangxx
+cxx_compiler_version:
+- '16'
+double:
+- 'no'
+fftw:
+- '3'
+llvm_openmp:
+- '16'
+macos_machine:
+- arm64-apple-darwin20.0.0
+mpi:
+- nompi
+mpich:
+- '4'
+openmpi:
+- '4'
+perl:
+- 5.32.1
+target_platform:
+- osx-arm64
