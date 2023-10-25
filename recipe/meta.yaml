@@ -2,13 +2,8 @@
 # For latest release, see
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
-<<<<<<< HEAD
-{% set version = "2023.2" %}
-{% set build = 1 %}
-=======
 {% set version = "2023.3" %}
 {% set build = 0 %}
->>>>>>> upstream/main
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
 package:
