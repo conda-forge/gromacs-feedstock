@@ -3,7 +3,7 @@
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
 {% set version = "2023.3" %}
-{% set build = 3 %}
+{% set build = 4 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
 package:
