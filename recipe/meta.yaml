@@ -3,7 +3,7 @@
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
 {% set version = "2023.4" %}
-{% set build = 0 %}
+{% set build = 1 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
 package:
@@ -31,9 +31,9 @@ requirements:
     - make
     - {{ compiler('cxx') }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
-    - cmake >3.13
+    - cmake >=3.18.4
     - pocl
-    - python >3.5
+    - python >=3.7
     - perl
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
@@ -66,7 +66,7 @@ test:
 about:
   home: https://www.gromacs.org/
   license: LGPL-2.1-or-later
-  license_family: GPL
+  license_family: LGPL
   license_file: COPYING
   summary: GROMACS is a versatile package to perform molecular dynamics.
   description: |
@@ -78,8 +78,8 @@ about:
     at calculating the nonbonded interactions (that usually dominate
     simulations) many groups are also using it for research on
     non-biological systems, e.g. polymers.
-  doc_url: https://www.gromacs.org
-  dev_url: https://github.com/gromacs/gromacs
+  doc_url: https://manual.gromacs.org/
+  dev_url: https://gitlab.com/gromacs/gromacs
 
 extra:
   recipe-maintainers:

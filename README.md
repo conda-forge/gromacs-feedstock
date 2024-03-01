@@ -9,7 +9,7 @@ Package license: LGPL-2.1-or-later
 
 Summary: GROMACS is a versatile package to perform molecular dynamics.
 
-Development: https://github.com/gromacs/gromacs
+Development: https://gitlab.com/gromacs/gromacs
 
 Documentation: https://www.gromacs.org
 
