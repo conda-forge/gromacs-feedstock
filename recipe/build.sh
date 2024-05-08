@@ -164,7 +164,7 @@ esac
 function _gromacs_bin_dir() {
   local simdflavor
   local uname=\$(uname -m)
-  if [[ "\$uname" == "arm" ]]; then
+  if [[ "\$uname" == "arm64" ]]; then
     # Assume ARM Mac
     test -d "${PREFIX}/bin.ARM_NEON_ASIMD" && \
       simdflavor='ARM_NEON_ASIMD'
@@ -199,7 +199,7 @@ EOF
 #! /bin/tcsh
 
 setenv uname `uname -m`
-if ( `uname -m` == "arm" && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then ) then
+if ( `uname -m` == "arm64" && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
    setenv simdflavor ARM_NEON_ASIMD
 else
 
