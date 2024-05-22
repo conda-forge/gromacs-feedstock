@@ -2,15 +2,16 @@
 
 set -x
 
-env
-exit 1
-
 mkdir build
 cd build
 
 if [[ "$HOST" == "arm64-apple-darwin"* ]];
 then
-    # Assume ARM Mac
+    # ARM Mac
+    simdflavors=(ARM_NEON_ASIMD)
+elif [[ "${target_platform}" == "linux-aarch64" ]];
+then
+    # ARM Linux
     simdflavors=(ARM_NEON_ASIMD)
 else
     # Assume x86
@@ -169,8 +170,8 @@ esac
 function _gromacs_bin_dir() {
   local simdflavor
   local uname=\$(uname -m)
-  if [[ "\$uname" == "arm64" ]]; then
-    # Assume ARM Mac
+  if [[ "\$uname" == "arm" || "\$uname" == "aarch64" ]]; then
+    # Assume ARM Mac/Linux
     test -d "${PREFIX}/bin.ARM_NEON_ASIMD" && \
       simdflavor='ARM_NEON_ASIMD'
   else
@@ -203,8 +204,8 @@ EOF
 { cat <<EOF
 #! /bin/tcsh
 
-setenv uname_m \`uname -m\`
-if ( \$uname_m == "arm64" && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
+setenv uname `uname -m`
+if ( (`uname -m` == "arm" || `uname -m` == "aarch64") && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then ) then
    setenv simdflavor ARM_NEON_ASIMD
 else
 
