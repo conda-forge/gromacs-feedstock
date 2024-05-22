@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -x
+
+env
+exit 1
+
 mkdir build
 cd build
 
