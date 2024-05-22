@@ -204,6 +204,9 @@ cat >> "${PREFIX}/etc/conda/activate.d/gromacs_activate.sh" <<EOF
 . "\$( _gromacs_bin_dir )/GMXRC" "\${@}"
 EOF
 
+echo "---- DEBUG gromacs_activate.sh"
+cat "${PREFIX}/etc/conda/activate.d/gromacs_activate.sh"
+
 cat >> "${PREFIX}/bin/${gmx}" <<EOF
 exec "\$( _gromacs_bin_dir )/${gmx}" "\${@}"
 EOF
@@ -213,9 +216,9 @@ EOF
 #! /bin/tcsh
 
 setenv uname `uname -m`
-if ( (`uname -m` == "arm" || `uname -m` == "aarch64") && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then ) then
+if ( (`uname -m` == "arm" || (`uname -m` == "aarch64" || "${target_platform}" == "linux-aarch64")) && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then ) then
    setenv simdflavor ARM_NEON_ASIMD
-elif ( `uname -m` == "ppc64le" && -d "${PREFIX}/bin.IBM_VSX" ) then ) then
+elif ( (`uname -m` == "ppc64le" || "${target_platform}" == "linux-ppc64le") && -d "${PREFIX}/bin.IBM_VSX" ) then ) then
    setenv simdflavor IBM_VSX
 else
 
@@ -240,3 +243,6 @@ source "${PREFIX}/bin.\$simdflavor/GMXRC"
 
 EOF
 } > "${PREFIX}/etc/conda/activate.d/gromacs_activate.csh"
+
+echo "=== DEBUG gromacs_activate.csh"
+cat "${PREFIX}/etc/conda/activate.d/gromacs_activate.csh"
