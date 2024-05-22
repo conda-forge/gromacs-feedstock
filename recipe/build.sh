@@ -181,7 +181,7 @@ function _gromacs_bin_dir() {
   elif [[ "\$uname" == "ppc64le" ]]; then
     # Assume PowerPC Linux
     test -d "${PREFIX}/bin.IBM_VSX" && \
-      simdflavor='ARM_NEON_ASIMD'
+      simdflavor='IBM_VSX'
   else
     simdflavor='SSE2'
     case \$( ${hardware_info_command} ) in
