@@ -13,6 +13,10 @@ elif [[ "${target_platform}" == "linux-aarch64" ]];
 then
     # ARM Linux
     simdflavors=(ARM_NEON_ASIMD)
+elif [[ "${target_platform}" == "linux-ppc64le" ]];
+then
+    # PowerPC Linux
+    simdflavors=(IBM_VSX)
 else
     # Assume x86
     simdflavors=(SSE2 AVX_256 AVX2_256)
@@ -174,6 +178,10 @@ function _gromacs_bin_dir() {
     # Assume ARM Mac/Linux
     test -d "${PREFIX}/bin.ARM_NEON_ASIMD" && \
       simdflavor='ARM_NEON_ASIMD'
+  elif [[ "\$uname" == "ppc64le" ]]; then
+    # Assume PowerPC Linux
+    test -d "${PREFIX}/bin.IBM_VSX" && \
+      simdflavor='ARM_NEON_ASIMD'
   else
     simdflavor='SSE2'
     case \$( ${hardware_info_command} ) in
@@ -207,6 +215,8 @@ EOF
 setenv uname `uname -m`
 if ( (`uname -m` == "arm" || `uname -m` == "aarch64") && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then ) then
    setenv simdflavor ARM_NEON_ASIMD
+elif ( `uname -m` == "ppc64le" && -d "${PREFIX}/bin.IBM_VSX" ) then ) then
+   setenv simdflavor IBM_VSX
 else
 
     setenv hwlist \`${hardware_info_command}\`
