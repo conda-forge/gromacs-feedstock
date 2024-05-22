@@ -33,6 +33,7 @@ requirements:
     - {{ compiler('cxx') }}
     - {{ stdlib("c") }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
+    - {{ stdlib("c") }}
     - cmake >=3.18.4
     - pocl
     - python >=3.7
