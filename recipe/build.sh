@@ -198,20 +198,20 @@ EOF
 { cat <<EOF
 #! /bin/tcsh
 
-setenv uname `uname -m`
-if ( `uname -m` == "arm64" && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
+setenv uname_m \`uname -m\`
+if ( \$uname_m == "arm64" && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
    setenv simdflavor ARM_NEON_ASIMD
 else
 
-    setenv hwlist `${hardware_info_command}`
+    setenv hwlist \`${hardware_info_command}\`
 
-    if ( `echo \$hwlist | grep -c 'avx512f'` > 0 && -d "${PREFIX}/bin.AVX_512" && `"${PREFIX}/bin.AVX_512/identifyavx512fmaunits" | grep -c 2` > 0 ) then
+    if ( \`echo \$hwlist | grep -c 'avx512f'\` > 0 && -d "${PREFIX}/bin.AVX_512" && \`"${PREFIX}/bin.AVX_512/identifyavx512fmaunits" | grep -c 2\` > 0 ) then
         setenv simdflavor AVX_512
     else 
-        if ( `echo \$hwlist | grep -c avx2` > 0 && -d "${PREFIX}/bin.AVX2_256" ) then
+        if ( \`echo \$hwlist | grep -c avx2\` > 0 && -d "${PREFIX}/bin.AVX2_256" ) then
             setenv simdflavor AVX2_256
         else
-            if ( `echo \$hwlist | grep -c avx` > 0 && -d "${PREFIX}/bin.AVX_256" ) then
+            if ( \`echo \$hwlist | grep -c avx\` > 0 && -d "${PREFIX}/bin.AVX_256" ) then
                 setenv simdflavor AVX_256
             else
                 setenv simdflavor SSE2
