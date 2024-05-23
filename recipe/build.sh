@@ -174,7 +174,7 @@ esac
 function _gromacs_bin_dir() {
   local simdflavor
   local uname=\$(uname -m)
-  if [[ "\$uname" == "arm" || "\$uname" == "aarch64" ]]; then
+  if [[ "\$uname" == "arm64" || "\$uname" == "aarch64" ]]; then
     # Assume ARM Mac/Linux
     test -d "${PREFIX}/bin.ARM_NEON_ASIMD" && \
       simdflavor='ARM_NEON_ASIMD'
@@ -212,10 +212,10 @@ EOF
 { cat <<EOF
 #! /bin/tcsh
 
-setenv uname `uname -m`
-if ( (`uname -m` == "arm" || `uname -m` == "aarch64") && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then ) then
+setenv uname_m \`uname -m\`
+if ( ( \$uname_m == "arm64" || \$uname_m == "aarch64") && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
    setenv simdflavor ARM_NEON_ASIMD
-elif ( `uname -m` == "ppc64le" && -d "${PREFIX}/bin.IBM_VSX" ) then ) then
+else if ( \$uname_m == "ppc64le" && -d "${PREFIX}/bin.IBM_VSX" ) then
    setenv simdflavor IBM_VSX
 else
 
