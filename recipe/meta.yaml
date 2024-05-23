@@ -58,13 +58,13 @@ requirements:
 
 test:
   commands:
-    - gmx -version  # [not aarch64 and mpi == 'nompi' and double == 'no']
-    - gmx_d -version  # [not aarch64 and mpi == 'nompi' and double == 'yes']
-    - export OMPI_MCA_plm=isolated  # [not aarch64 and mpi == "openmpi" and linux]
-    - export OMPI_MCA_btl_vader_single_copy_mechanism=none  # [not aarch64 and mpi == "openmpi" and linux]
-    - export OMPI_MCA_rmaps_base_oversubscribe=yes  # [not aarch64 and mpi == "openmpi" and linux]
-    - gmx_mpi -version  # [not aarch64 and mpi != 'nompi' and double == 'no']
-    - gmx_mpi_d -version  # [not aarch64 and mpi != 'nompi' and double == 'yes']:
+    - gmx -version  # [mpi == 'nompi' and double == 'no']
+    - gmx_d -version  # [mpi == 'nompi' and double == 'yes']
+    - export OMPI_MCA_plm=isolated  # [mpi == "openmpi" and linux]
+    - export OMPI_MCA_btl_vader_single_copy_mechanism=none  # [mpi == "openmpi" and linux]
+    - export OMPI_MCA_rmaps_base_oversubscribe=yes  # [mpi == "openmpi" and linux]
+    - gmx_mpi -version  # [mpi != 'nompi' and double == 'no']
+    - gmx_mpi_d -version  # [mpi != 'nompi' and double == 'yes']:
 
 about:
   home: https://www.gromacs.org/
