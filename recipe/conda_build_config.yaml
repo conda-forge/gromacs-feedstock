@@ -4,6 +4,3 @@ mpi:
 double:
   - no
   - yes
-cuda_compiler:
-  - None
-  - nvcc   
