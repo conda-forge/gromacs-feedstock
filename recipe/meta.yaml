@@ -30,7 +30,8 @@ requirements:
   build:
     - make
     - {{ compiler('cxx') }}
-    - {{ compiler('cuda') }}  # [(cuda_compiler or "None") != "None"]
+    - {{ compiler('cuda') }}  # [cuda_compiler != "None"]
+    - cuda-version {{ cuda_compiler_version }}  # [(cuda_compiler_version or "None") != "None"]
     - {{ stdlib("c") }}
     - cmake >=3.18.4
     - pocl
