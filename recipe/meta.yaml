@@ -2,8 +2,8 @@
 # For latest release, see
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
-{% set version = "2023.4" %}
-{% set build = 5 %}
+{% set version = "2024.2" %}
+{% set build = 2 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
 package:
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://ftp.gromacs.org/gromacs/gromacs-{{ version }}.tar.gz
-  sha256: e5d6c4d9e7ccacfaccb0888619bd21b5ea8911f82b410e68d6db5d40f695f231
+  sha256: 802a7e335f2e895770f57b159e4ec368ebb0ff2ce6daccf706c6e8025c36852b
 
 build:
   number: {{ build }}
@@ -31,6 +31,7 @@ requirements:
   build:
     - make
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
     - cmake >=3.18.4
     - pocl
