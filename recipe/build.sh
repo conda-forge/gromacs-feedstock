@@ -1,12 +1,22 @@
 #!/bin/bash
 
+set -x
+
 mkdir build
 cd build
 
 if [[ "$HOST" == "arm64-apple-darwin"* ]];
 then
-    # Assume ARM Mac
+    # ARM Mac
     simdflavors=(ARM_NEON_ASIMD)
+elif [[ "${target_platform}" == "linux-aarch64" ]];
+then
+    # ARM Linux
+    simdflavors=(ARM_NEON_ASIMD)
+elif [[ "${target_platform}" == "linux-ppc64le" ]];
+then
+    # PowerPC Linux
+    simdflavors=(IBM_VSX)
 else
     # Assume x86
     simdflavors=(SSE2 AVX_256 AVX2_256)
@@ -164,10 +174,14 @@ esac
 function _gromacs_bin_dir() {
   local simdflavor
   local uname=\$(uname -m)
-  if [[ "\$uname" == "arm64" ]]; then
-    # Assume ARM Mac
+  if [[ "\$uname" == "arm64" || "\$uname" == "aarch64" ]]; then
+    # Assume ARM Mac/Linux
     test -d "${PREFIX}/bin.ARM_NEON_ASIMD" && \
       simdflavor='ARM_NEON_ASIMD'
+  elif [[ "\$uname" == "ppc64le" ]]; then
+    # Assume PowerPC Linux
+    test -d "${PREFIX}/bin.IBM_VSX" && \
+      simdflavor='IBM_VSX'
   else
     simdflavor='SSE2'
     case \$( ${hardware_info_command} ) in
@@ -199,8 +213,10 @@ EOF
 #! /bin/tcsh
 
 setenv uname_m \`uname -m\`
-if ( \$uname_m == "arm64" && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
+if ( ( \$uname_m == "arm64" || \$uname_m == "aarch64") && -d "${PREFIX}/bin.ARM_NEON_ASIMD" ) then
    setenv simdflavor ARM_NEON_ASIMD
+else if ( \$uname_m == "ppc64le" && -d "${PREFIX}/bin.IBM_VSX" ) then
+   setenv simdflavor IBM_VSX
 else
 
     setenv hwlist \`${hardware_info_command}\`
