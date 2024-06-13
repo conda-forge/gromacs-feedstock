@@ -8,6 +8,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+cuda_compiler:
+- None
 cuda_compiler_version:
 - None
 cxx_compiler:
@@ -25,7 +27,7 @@ mpi:
 mpich:
 - '4'
 openmpi:
-- '4'
+- '5'
 perl:
 - 5.32.1
 target_platform:
@@ -34,5 +36,6 @@ zip_keys:
 - - cxx_compiler_version
   - c_stdlib_version
   - cdt_name
+  - cuda_compiler
   - cuda_compiler_version
   - docker_image
