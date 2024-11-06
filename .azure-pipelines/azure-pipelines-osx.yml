@@ -28,10 +28,18 @@ jobs:
         CONFIG: osx_arm64_doublenompinompi
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_arm64_doublenompinompi
+      osx_arm64_doublenompiopenmpi:
+        CONFIG: osx_arm64_doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: osx_arm64_doublenompiopenmpi
       osx_arm64_doubleyesmpinompi:
         CONFIG: osx_arm64_doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
         SHORT_CONFIG: osx_arm64_doubleyesmpinompi
+      osx_arm64_doubleyesmpiopenmpi:
+        CONFIG: osx_arm64_doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        SHORT_CONFIG: osx_arm64_doubleyesmpiopenmpi
   timeoutInMinutes: 360
   variables: {}
 
