@@ -19,10 +19,10 @@ build:
   string: >-
     nompi_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
     mpi_{{ mpi }}_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no' and cuda_compiler_version == "None"]
-#    mpi_{{ mpi }}_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no' and cuda_compiler_version != "None"]
+    #mpi_{{ mpi }}_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'no' and cuda_compiler_version != "None"]
     nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
-#    nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version != "None"]
+    #nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version != "None"]
   skip: true  # [win or cuda_compiler_version == "12.0"]
   skip: true  # [mpi == "openmpi" and arm64]
   skip: true  # [double == "yes" and cuda_compiler_version != "None"]
@@ -39,7 +39,7 @@ requirements:
     - {{ stdlib("c") }}
     - cmake >=3.4.3
     - pocl
-#    - python >=3.7
+    #- python >=3.7
     - perl
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
@@ -47,7 +47,7 @@ requirements:
   host:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
     - khronos-opencl-icd-loader  # [osx]
-#    - libhwloc 2.*
+    #- libhwloc 2.*
     - fftw
     - {{ mpi }}  # [mpi != 'nompi']
   run:
@@ -55,7 +55,7 @@ requirements:
     - khronos-opencl-icd-loader  # [osx]
     - ocl_icd_wrapper_apple  # [osx]
     - fftw
-#    - libhwloc 2.*
+    #- libhwloc 2.*
     - {{ mpi }}  # [mpi != 'nompi']
     - __cuda  # [not osx and cuda_compiler_version != "None"]
 
