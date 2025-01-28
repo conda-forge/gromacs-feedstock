@@ -1,0 +1,38 @@
+From 971ece9657368fb1a647cb5b0b30a2edef4ba6ab Mon Sep 17 00:00:00 2001
+From: Mark Abraham <mark.j.abraham@gmail.com>
+Date: Tue, 28 Jan 2025 12:04:47 +0100
+Subject: [PATCH] Include missing standard headers where needed
+
+---
+ src/gromacs/awh/biasparams.cpp | 1 +
+ src/gromacs/mdrun/logging.h    | 2 ++
+ 2 files changed, 3 insertions(+)
+
+diff --git a/src/gromacs/awh/biasparams.cpp b/src/gromacs/awh/biasparams.cpp
+index f4db497002..e762ea084a 100644
+--- a/src/gromacs/awh/biasparams.cpp
++++ b/src/gromacs/awh/biasparams.cpp
+@@ -49,6 +49,7 @@
+ #include <cmath>
+ 
+ #include <algorithm>
++#include <limits>
+ 
+ #include "gromacs/math/functions.h"
+ #include "gromacs/mdtypes/awh-params.h"
+diff --git a/src/gromacs/mdrun/logging.h b/src/gromacs/mdrun/logging.h
+index 39557d09a2..78a1f84977 100644
+--- a/src/gromacs/mdrun/logging.h
++++ b/src/gromacs/mdrun/logging.h
+@@ -43,6 +43,8 @@
+ #ifndef GMX_MDRUN_LOGGING_H
+ #define GMX_MDRUN_LOGGING_H
+ 
++#include <cstdio>
++
+ #include <memory>
+ 
+ #include "gromacs/utility/basedefinitions.h"
+-- 
+2.34.1
+
