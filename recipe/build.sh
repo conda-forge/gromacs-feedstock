@@ -69,6 +69,8 @@ for simdflavor in "${simdflavors[@]}" ; do
       # compiler checks pass. See
       # https://conda-forge.org/docs/maintainer/knowledge_base.html#newer-c-features-with-old-sdk
       cmake_args+=(-DCMAKE_CXX_FLAGS='-D_LIBCPP_DISABLE_AVAILABILITY')
+      # Avoid finding a mismatching arm64/x86_64 HWLOC library
+      cmake_args+=(-DGMX_HWLOC=OFF)
   fi
   cmake .. "${cmake_args[@]}"
   make -j "${CPU_COUNT}"
