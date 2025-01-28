@@ -1,4 +1,4 @@
-From 971ece9657368fb1a647cb5b0b30a2edef4ba6ab Mon Sep 17 00:00:00 2001
+From 6991679bf6b4f3fde47843a2ad9a4a4b08f254e7 Mon Sep 17 00:00:00 2001
 From: Mark Abraham <mark.j.abraham@gmail.com>
 Date: Tue, 28 Jan 2025 12:04:47 +0100
 Subject: [PATCH] Include missing standard headers where needed
@@ -6,7 +6,8 @@ Subject: [PATCH] Include missing standard headers where needed
 ---
  src/gromacs/awh/biasparams.cpp | 1 +
  src/gromacs/mdrun/logging.h    | 2 ++
- 2 files changed, 3 insertions(+)
+ src/gromacs/mdrun/minimize.cpp | 1 +
+ 3 files changed, 4 insertions(+)
 
 diff --git a/src/gromacs/awh/biasparams.cpp b/src/gromacs/awh/biasparams.cpp
 index f4db497002..e762ea084a 100644
@@ -33,6 +34,18 @@ index 39557d09a2..78a1f84977 100644
  #include <memory>
  
  #include "gromacs/utility/basedefinitions.h"
+diff --git a/src/gromacs/mdrun/minimize.cpp b/src/gromacs/mdrun/minimize.cpp
+index 8550271325..495bcfdda0 100644
+--- a/src/gromacs/mdrun/minimize.cpp
++++ b/src/gromacs/mdrun/minimize.cpp
+@@ -51,6 +51,7 @@
+ #include <ctime>
+ 
+ #include <algorithm>
++#include <limits>
+ #include <vector>
+ 
+ #include "gromacs/commandline/filenm.h"
 -- 
 2.34.1
 
