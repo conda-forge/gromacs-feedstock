@@ -13,6 +13,8 @@ package:
 source:
   url: https://ftp.gromacs.org/gromacs/gromacs-{{ version }}.tar.gz
   sha256: bebe396dc0db11a9d4cc205abc13b50d88225617642508168a2195324f06a358
+  patches:
+     - 0001-Include-cstdio-where-needed.patch
 
 build:
   number: {{ build }}
