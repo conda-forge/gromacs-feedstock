@@ -58,6 +58,8 @@ for simdflavor in "${simdflavors[@]}" ; do
   fi
   if [[ "${cuda_compiler_version}" != "None" ]]; then
       cmake_args+=(-DGMX_GPU=CUDA)
+  else
+      cmake_args+=(-DGMX_GPU=OFF)
   fi
   if [[ "$(uname)" == 'Darwin' ]] ; then
       # The clang compiler used on MacOS assumes the system libc++ is
