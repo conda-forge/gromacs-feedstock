@@ -8,86 +8,166 @@ jobs:
     vmImage: ubuntu-latest
   strategy:
     matrix:
-      linux_64_cuda_compiler_version11.8cxx_compiler_version11doublenompinompi:
-        CONFIG: linux_64_cuda_compiler_version11.8cxx_compiler_version11doublenompinompi
+      linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
+        CONFIG: linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.8
-        SHORT_CONFIG: linux_64_cuda_compiler_version11.8c_h8ff77d95e0
-      linux_64_cuda_compiler_version11.8cxx_compiler_version11doublenompiopenmpi:
-        CONFIG: linux_64_cuda_compiler_version11.8cxx_compiler_version11doublenompiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilerNonecud_h9af754bc59
+      linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.8
-        SHORT_CONFIG: linux_64_cuda_compiler_version11.8c_h9b1012629c
-      linux_64_cuda_compiler_version11.8cxx_compiler_version11doubleyesmpinompi:
-        CONFIG: linux_64_cuda_compiler_version11.8cxx_compiler_version11doubleyesmpinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilerNonecud_ha135c5bd96
+      linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.8
-        SHORT_CONFIG: linux_64_cuda_compiler_version11.8c_hf84a3abd5c
-      linux_64_cuda_compiler_version11.8cxx_compiler_version11doubleyesmpiopenmpi:
-        CONFIG: linux_64_cuda_compiler_version11.8cxx_compiler_version11doubleyesmpiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilerNonecud_h47bf17bdc7
+      linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cuda:11.8
-        SHORT_CONFIG: linux_64_cuda_compiler_version11.8c_h7d70ad1a12
-      linux_64_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
-        CONFIG: linux_64_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilerNonecud_h3c3a4e39bf
+      linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompinompi:
+        CONFIG: linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_cuda_compiler_versionNonec_h0c92390041
-      linux_64_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
-        CONFIG: linux_64_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilercuda-nv_hd2ca754e10
+      linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_cuda_compiler_versionNonec_h363bb0611b
-      linux_64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
-        CONFIG: linux_64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilercuda-nv_h512e4d58b3
+      linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_cuda_compiler_versionNonec_ha4ff12c434
-      linux_64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
-        CONFIG: linux_64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilercuda-nv_h005a8a7ab1
+      linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_64_cudanocuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_64_cuda_compiler_versionNonec_hb4954fd4cf
-      linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
-        CONFIG: linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudanocuda_compilercuda-nv_h14dca1ccc4
+      linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
+        CONFIG: linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_aarch64_cuda_compiler_version_h704ddcda8f
-      linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
-        CONFIG: linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilerNonecu_hefdc07ff84
+      linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_aarch64_cuda_compiler_version_hed2d65f74c
-      linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
-        CONFIG: linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilerNonecu_h3e55095a93
+      linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_aarch64_cuda_compiler_version_hd7d7754c7d
-      linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
-        CONFIG: linux_aarch64_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilerNonecu_h3d0b27427f
+      linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_aarch64_cuda_compiler_version_h681959624c
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilerNonecu_hf5e09e0186
+      linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompinompi:
+        CONFIG: linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_version_h774fcb83d5
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilercuda-n_h8dd4795b4e
+      linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_version_ha9caa924d0
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilercuda-n_h3d93c04a79
+      linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_version_h3072026f99
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilercuda-n_h8cd8a27297
+      linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_64_cudayescuda_compilercuda-nvcccuda_compiler_version12.6cxx_compiler_version13doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-cos7-x86_64
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_version_ha4305e6dfe
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_64_cudayescuda_compilercuda-n_hb6bc9acf1c
+      linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
+        CONFIG: linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudanocuda_compilerNo_h5fcb343a19
+      linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudanocuda_compilerNo_h3a740b22a4
+      linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudanocuda_compilerNo_hc909100d75
+      linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_aarch64_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudanocuda_compilerNo_h7f84f17bd0
+      linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
+        CONFIG: linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudayescuda_compilerN_hfb6fb2570a
+      linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudayescuda_compilerN_h6e668a7dde
+      linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudayescuda_compilerN_hb5f8d43f28
+      linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_aarch64_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_aarch64_cudayescuda_compilerN_h7fef71f0fa
+      linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
+        CONFIG: linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudanocuda_compilerNo_h9574fa6514
+      linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudanocuda_compilerNo_he0984b06ec
+      linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudanocuda_compilerNo_h27b5002042
+      linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_ppc64le_cudanocuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudanocuda_compilerNo_hccd44472d7
+      linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi:
+        CONFIG: linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudayescuda_compilerN_h56b05bd790
+      linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi:
+        CONFIG: linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudayescuda_compilerN_h4b264a164e
+      linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi:
+        CONFIG: linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudayescuda_compilerN_he8ac48563f
+      linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi:
+        CONFIG: linux_ppc64le_cudayescuda_compilerNonecuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi
+        UPLOAD_PACKAGES: 'True'
+        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
+        SHORT_CONFIG: linux_ppc64le_cudayescuda_compilerN_h6b7430b8dc
   timeoutInMinutes: 360
   variables: {}
 

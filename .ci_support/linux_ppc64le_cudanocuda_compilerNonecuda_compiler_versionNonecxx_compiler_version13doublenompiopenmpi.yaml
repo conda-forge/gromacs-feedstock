@@ -3,11 +3,13 @@ c_stdlib:
 c_stdlib_version:
 - '2.17'
 cdt_name:
-- cos7
+- conda
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+cuda:
+- 'no'
 cuda_compiler:
 - None
 cuda_compiler_version:
@@ -17,25 +19,23 @@ cxx_compiler:
 cxx_compiler_version:
 - '13'
 docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
+- quay.io/condaforge/linux-anvil-x86_64:alma9
 double:
-- 'yes'
+- 'no'
 fftw:
 - '3'
 mpi:
-- nompi
+- openmpi
 mpich:
 - '4'
 openmpi:
-- '5'
+- '4'
 perl:
 - 5.32.1
 target_platform:
-- linux-64
+- linux-ppc64le
 zip_keys:
 - - cxx_compiler_version
-  - c_stdlib_version
-  - cdt_name
   - cuda_compiler
   - cuda_compiler_version
   - docker_image

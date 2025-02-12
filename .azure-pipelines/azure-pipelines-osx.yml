@@ -8,30 +8,30 @@ jobs:
     vmImage: macOS-13
   strategy:
     matrix:
-      osx_64_doublenompinompi:
-        CONFIG: osx_64_doublenompinompi
+      osx_64_cudanodoublenompinompi:
+        CONFIG: osx_64_cudanodoublenompinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doublenompinompi
-      osx_64_doublenompiopenmpi:
-        CONFIG: osx_64_doublenompiopenmpi
+        SHORT_CONFIG: osx_64_cudanodoublenompinompi
+      osx_64_cudanodoublenompiopenmpi:
+        CONFIG: osx_64_cudanodoublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doublenompiopenmpi
-      osx_64_doubleyesmpinompi:
-        CONFIG: osx_64_doubleyesmpinompi
+        SHORT_CONFIG: osx_64_cudanodoublenompiopenmpi
+      osx_64_cudanodoubleyesmpinompi:
+        CONFIG: osx_64_cudanodoubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doubleyesmpinompi
-      osx_64_doubleyesmpiopenmpi:
-        CONFIG: osx_64_doubleyesmpiopenmpi
+        SHORT_CONFIG: osx_64_cudanodoubleyesmpinompi
+      osx_64_cudanodoubleyesmpiopenmpi:
+        CONFIG: osx_64_cudanodoubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doubleyesmpiopenmpi
-      osx_arm64_doublenompinompi:
-        CONFIG: osx_arm64_doublenompinompi
+        SHORT_CONFIG: osx_64_cudanodoubleyesmpiopenmpi
+      osx_arm64_cudanodoublenompinompi:
+        CONFIG: osx_arm64_cudanodoublenompinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_doublenompinompi
-      osx_arm64_doubleyesmpinompi:
-        CONFIG: osx_arm64_doubleyesmpinompi
+        SHORT_CONFIG: osx_arm64_cudanodoublenompinompi
+      osx_arm64_cudanodoubleyesmpinompi:
+        CONFIG: osx_arm64_cudanodoubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_doubleyesmpinompi
+        SHORT_CONFIG: osx_arm64_cudanodoubleyesmpinompi
   timeoutInMinutes: 360
   variables: {}
 

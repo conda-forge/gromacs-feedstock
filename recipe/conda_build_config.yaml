@@ -4,3 +4,6 @@ mpi:
 double:
   - no
   - yes
+cuda:
+  - no
+  - yes

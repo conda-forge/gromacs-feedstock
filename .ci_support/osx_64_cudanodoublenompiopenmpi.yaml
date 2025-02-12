@@ -10,6 +10,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+cuda:
+- 'no'
 cuda_compiler_version:
 - None
 cxx_compiler:
@@ -17,7 +19,7 @@ cxx_compiler:
 cxx_compiler_version:
 - '18'
 double:
-- 'yes'
+- 'no'
 fftw:
 - '3'
 llvm_openmp:
@@ -29,7 +31,7 @@ mpi:
 mpich:
 - '4'
 openmpi:
-- '5'
+- '4'
 perl:
 - 5.32.1
 target_platform:
