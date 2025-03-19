@@ -2,7 +2,7 @@
 # For latest release, see
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
-{% set version = "2025.0" %}
+{% set version = "2025.1" %}
 {% set build = 0 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://ftp.gromacs.org/gromacs/gromacs-{{ version }}.tar.gz
-  sha256: a27ad35a646295bbec129abe684d9d03d1e2e0bd76b0d625e9055746aaefae82
+  sha256: 0adf621a80fd8043f8defec84ce02811c0cdf42a052232890932d81f25c4d28a
 
 build:
   number: {{ build }}
