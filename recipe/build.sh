@@ -69,7 +69,7 @@ for simdflavor in "${simdflavors[@]}" ; do
       cmake_args+=(-DCMAKE_CXX_FLAGS='-D_LIBCPP_DISABLE_AVAILABILITY')
   fi
   cmake .. "${cmake_args[@]}"
-  make -j "${CPU_COUNT}"
+  VERBOSE=1 make -j "${CPU_COUNT}"
   make install
 done
 
