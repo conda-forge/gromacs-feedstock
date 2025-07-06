@@ -25,7 +25,6 @@ fi
 ## See INSTALL of gromacs distro
 for simdflavor in "${simdflavors[@]}" ; do
   cmake_args=(
-    -DGMX_BUILD_UNITTESTS=OFF
     -DSHARED_LIBS_DEFAULT=ON
     -DBUILD_SHARED_LIBS=ON
     -DGMX_PREFER_STATIC_LIBS=NO
