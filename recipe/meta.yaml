@@ -2,7 +2,7 @@
 # For latest release, see
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
-{% set version = "2024.5" %}
+{% set version = "2025.2" %}
 {% set build = 0 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://ftp.gromacs.org/gromacs/gromacs-{{ version }}.tar.gz
-  sha256: fecf06b186cddb942cfb42ee8da5f3eb2b9993e6acc0a2f18d14ac0b014424f3
+  sha256: 0df09f9d45a99ef00e66b9baa9493a27e906813763a3b6c7672217c66b43ea11
 
 build:
   number: {{ build }}
@@ -23,7 +23,7 @@ build:
     nompi_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     mpi_{{ mpi }}_dblprec_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi != 'nompi' and double == 'yes' and cuda_compiler_version == "None"]
     nompi_cuda_h{{ PKG_HASH }}_{{ PKG_BUILDNUM }}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version != "None"]
-  skip: true  # [win or cuda_compiler_version == "12.0"]
+  skip: true  # [win]
   skip: true  # [mpi == "openmpi" and arm64]
   skip: true  # [double == "yes" and cuda_compiler_version != "None"]
 
@@ -37,21 +37,24 @@ requirements:
     - {{ stdlib("c") }}
     - {{ compiler('cuda') }}  # [cuda_compiler_version != "None"]
     - {{ stdlib("c") }}
-    - cmake >=3.18.4
+    - cmake >=3.28
     - pocl
     - python >=3.7
     - perl
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - coreutils  # [cuda_compiler_version != "None"]
+    - cuda-toolkit >=12.6,<12.8  # [cuda_compiler_version != "None"]
   host:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
+    - cuda-toolkit >=12.6,<12.8  # [cuda_compiler_version != "None"]
     - khronos-opencl-icd-loader  # [osx]
     - libhwloc 2.*
     - fftw
     - {{ mpi }}  # [mpi != 'nompi']
   run:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
+    - cuda-toolkit >=12.6,<12.8  # [cuda_compiler_version != "None"]
     - khronos-opencl-icd-loader  # [osx]
     - ocl_icd_wrapper_apple  # [osx]
     - fftw
