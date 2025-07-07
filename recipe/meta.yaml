@@ -44,15 +44,17 @@ requirements:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - coreutils  # [cuda_compiler_version != "None"]
-    - cuda-toolkit >=12.6,<12.8  # [cuda_compiler_version != "None"]
+    - libcufft  # [cuda_compiler_version != "None"]
   host:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
+    - libcufft  # [cuda_compiler_version != "None"]
     - khronos-opencl-icd-loader  # [osx]
     - libhwloc 2.*
     - fftw
     - {{ mpi }}  # [mpi != 'nompi']
   run:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
+    - libcufft  # [cuda_compiler_version != "None"]
     - khronos-opencl-icd-loader  # [osx]
     - ocl_icd_wrapper_apple  # [osx]
     - fftw
