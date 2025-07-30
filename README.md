@@ -41,115 +41,115 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_64_cuda_compiler_version12.6doublenompinompi</td>
+              <td>linux_64_cuda_compiler_version12.6cxx_compiler_version13doublenompinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6doublenompinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6cxx_compiler_version13doublenompinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version12.6doublenompiopenmpi</td>
+              <td>linux_64_cuda_compiler_version12.6cxx_compiler_version13doublenompiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6doublenompiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6cxx_compiler_version13doublenompiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version12.6doubleyesmpinompi</td>
+              <td>linux_64_cuda_compiler_version12.6cxx_compiler_version13doubleyesmpinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6doubleyesmpinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6cxx_compiler_version13doubleyesmpinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_version12.6doubleyesmpiopenmpi</td>
+              <td>linux_64_cuda_compiler_version12.6cxx_compiler_version13doubleyesmpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6doubleyesmpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_version12.6cxx_compiler_version13doubleyesmpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonedoublenompinompi</td>
+              <td>linux_64_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonedoublenompinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonedoublenompiopenmpi</td>
+              <td>linux_64_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonedoublenompiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonedoubleyesmpinompi</td>
+              <td>linux_64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonedoubleyesmpinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_64_cuda_compiler_versionNonedoubleyesmpiopenmpi</td>
+              <td>linux_64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonedoubleyesmpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_cuda_compiler_versionNonedoublenompinompi</td>
+              <td>linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonedoublenompinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_cuda_compiler_versionNonedoublenompiopenmpi</td>
+              <td>linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonedoublenompiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_cuda_compiler_versionNonedoubleyesmpinompi</td>
+              <td>linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonedoubleyesmpinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_aarch64_cuda_compiler_versionNonedoubleyesmpiopenmpi</td>
+              <td>linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonedoubleyesmpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_aarch64_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi</td>
+              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi</td>
+              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doublenompiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi</td>
+              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpinompi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi" alt="variant">
                 </a>
               </td>
             </tr><tr>
-              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi</td>
+              <td>linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15655&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version13doubleyesmpiopenmpi" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gromacs-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi" alt="variant">
                 </a>
               </td>
             </tr><tr>
