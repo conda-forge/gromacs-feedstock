@@ -177,10 +177,10 @@ esac
 function _gromacs_bin_dir() {
   local simdflavor
   local uname=\$(uname -m)
-  if [[ "\$uname" == "arm64" || "\$uname" == "aarch64" ]]; then
+  if [[ ("\$uname" == "arm64" || "\$uname" == "aarch64") && \
+  -d "${PREFIX}/bin.ARM_NEON_ASIMD" ]]; then
     # Assume ARM Mac/Linux
-    test -d "${PREFIX}/bin.ARM_NEON_ASIMD" && \
-      simdflavor='ARM_NEON_ASIMD'
+    simdflavor='ARM_NEON_ASIMD'
   elif [[ "\$uname" == "ppc64le" ]]; then
     # Assume PowerPC Linux
     test -d "${PREFIX}/bin.IBM_VSX" && \
