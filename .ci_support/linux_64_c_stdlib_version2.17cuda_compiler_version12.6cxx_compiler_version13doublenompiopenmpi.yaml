@@ -19,11 +19,11 @@ cxx_compiler_version:
 docker_image:
 - quay.io/condaforge/linux-anvil-x86_64:alma9
 double:
-- 'yes'
+- 'no'
 fftw:
 - '3'
 mpi:
-- nompi
+- openmpi
 mpich:
 - '4'
 openmpi:
@@ -34,4 +34,5 @@ target_platform:
 - linux-64
 zip_keys:
 - - cxx_compiler_version
+  - c_stdlib_version
   - cuda_compiler_version

@@ -21,7 +21,7 @@ double:
 fftw:
 - '3'
 mpi:
-- openmpi
+- nompi
 mpich:
 - '4'
 openmpi:
@@ -29,7 +29,8 @@ openmpi:
 perl:
 - 5.32.1
 target_platform:
-- linux-aarch64
+- linux-ppc64le
 zip_keys:
 - - cxx_compiler_version
+  - c_stdlib_version
   - cuda_compiler_version
