@@ -68,26 +68,26 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         SHORT_CONFIG: linux_aarch64_cuda_compiler_versionNonec_h084ce24e
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompinompi
+      linux_ppc64le_doublenompinompi:
+        CONFIG: linux_ppc64le_doublenompinompi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_versionNonec_h1c87ae14
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doublenompiopenmpi
+        SHORT_CONFIG: linux_ppc64le_doublenompinompi
+      linux_ppc64le_doublenompiopenmpi:
+        CONFIG: linux_ppc64le_doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_versionNonec_heb06900c
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpinompi
+        SHORT_CONFIG: linux_ppc64le_doublenompiopenmpi
+      linux_ppc64le_doubleyesmpinompi:
+        CONFIG: linux_ppc64le_doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_versionNonec_h9e8f20a8
-      linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi:
-        CONFIG: linux_ppc64le_cuda_compiler_versionNonecxx_compiler_version14doubleyesmpiopenmpi
+        SHORT_CONFIG: linux_ppc64le_doubleyesmpinompi
+      linux_ppc64le_doubleyesmpiopenmpi:
+        CONFIG: linux_ppc64le_doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-        SHORT_CONFIG: linux_ppc64le_cuda_compiler_versionNonec_h632855ba
+        SHORT_CONFIG: linux_ppc64le_doubleyesmpiopenmpi
   timeoutInMinutes: 360
   variables: {}
 
