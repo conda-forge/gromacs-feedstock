@@ -3,7 +3,7 @@
 # https://manual.gromacs.org/documentation/
 {% set name = "gromacs" %}
 {% set version = "2025.3" %}
-{% set build = 0 %}
+{% set build = 1 %}
 {% set build = build + 100 %}  # [mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None"]
 
 package:
@@ -44,17 +44,17 @@ requirements:
     - libgomp  # [linux]
     - llvm-openmp  # [osx]
     - coreutils  # [cuda_compiler_version != "None"]
-    - cuda-toolkit >=12.6,<13  # [cuda_compiler_version != "None"]
+    - cuda-toolkit >=12.9,<13  # [cuda_compiler_version != "None"]
   host:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
-    - cuda-toolkit >=12.6,<12.8  # [cuda_compiler_version != "None"]
+    - cuda-toolkit >=12.9,<13  # [cuda_compiler_version != "None"]
     - khronos-opencl-icd-loader  # [osx]
     - libhwloc 2.*
     - fftw
     - {{ mpi }}  # [mpi != 'nompi']
   run:
     - ocl-icd  # [linux and cuda_compiler_version == "None"]
-    - cuda-toolkit >=12.6,<12.8  # [cuda_compiler_version != "None"]
+    - cuda-toolkit >=12.9,<13  # [cuda_compiler_version != "None"]
     - khronos-opencl-icd-loader  # [osx]
     - ocl_icd_wrapper_apple  # [osx]
     - fftw
