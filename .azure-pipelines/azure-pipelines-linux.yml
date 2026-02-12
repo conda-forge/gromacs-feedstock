@@ -18,16 +18,6 @@ jobs:
         UPLOAD_PACKAGES: 'True'
         DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
         SHORT_CONFIG: linux_64_cuda_compiler_version12.9double_heba20cfd
-      linux_64_cuda_compiler_version12.9doubleyesmpinompi:
-        CONFIG: linux_64_cuda_compiler_version12.9doubleyesmpinompi
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-        SHORT_CONFIG: linux_64_cuda_compiler_version12.9double_hac9d6e32
-      linux_64_cuda_compiler_version12.9doubleyesmpiopenmpi:
-        CONFIG: linux_64_cuda_compiler_version12.9doubleyesmpiopenmpi
-        UPLOAD_PACKAGES: 'True'
-        DOCKER_IMAGE: quay.io/condaforge/linux-anvil-x86_64:alma9
-        SHORT_CONFIG: linux_64_cuda_compiler_version12.9double_h8dbe4377
       linux_64_cuda_compiler_versionNonedoublenompinompi:
         CONFIG: linux_64_cuda_compiler_versionNonedoublenompinompi
         UPLOAD_PACKAGES: 'True'
