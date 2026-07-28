@@ -5,46 +5,95 @@
 jobs:
 - job: osx
   pool:
-    vmImage: macOS-15
+    vmImage: $(VMIMAGE)
   strategy:
     matrix:
       osx_64_doublenompinompi:
         CONFIG: osx_64_doublenompinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doublenompinompi
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_64_doublenompinompi
       osx_64_doublenompiopenmpi:
         CONFIG: osx_64_doublenompiopenmpi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doublenompiopenmpi
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_64_doublenompiopenmpi
       osx_64_doubleyesmpinompi:
         CONFIG: osx_64_doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doubleyesmpinompi
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_64_doubleyesmpinompi
       osx_64_doubleyesmpiopenmpi:
         CONFIG: osx_64_doubleyesmpiopenmpi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_64_doubleyesmpiopenmpi
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_64_doubleyesmpiopenmpi
       osx_arm64_doublenompinompi:
         CONFIG: osx_arm64_doublenompinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_doublenompinompi
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_arm64_doublenompinompi
       osx_arm64_doubleyesmpinompi:
         CONFIG: osx_arm64_doubleyesmpinompi
         UPLOAD_PACKAGES: 'True'
-        SHORT_CONFIG: osx_arm64_doubleyesmpinompi
+        VMIMAGE: macOS-15
+        build_workspace_dir: ~/miniforge3/conda-bld
+        free_disk_space: quick
+        pagefile_size: 0
+        resize_partitions: false
+        store_build_artifacts: true
+        tools_install_dir: ~/miniforge3
+        CONFIG_SHORT: osx_arm64_doubleyesmpinompi
   timeoutInMinutes: 360
   variables: {}
 
   steps:
   # TODO: Fast finish on azure pipelines?
   - script: |
+      .scripts/free_disk_space.sh "$(free_disk_space)"
+    env:
+      OS: macos
+    displayName: Manage disk space
+  - script: |
       export CI=azure
+      export CONDA_BLD_PATH=$(build_workspace_dir)
+      export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
+      export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
+      export MINIFORGE_HOME=$(tools_install_dir)
+      export OSX_FORCE_SDK_DOWNLOAD="1"
       export flow_run_id=azure_$(Build.BuildNumber).$(System.JobAttempt)
       export remote_url=$(Build.Repository.Uri)
       export sha=$(Build.SourceVersion)
-      export OSX_FORCE_SDK_DOWNLOAD="1"
-      export GIT_BRANCH=$BUILD_SOURCEBRANCHNAME
-      export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
       if [[ "${BUILD_REASON:-}" == "PullRequest" ]]; then
         export IS_PR_BUILD="True"
       else
@@ -56,21 +105,23 @@ jobs:
       BINSTAR_TOKEN: $(BINSTAR_TOKEN)
       FEEDSTOCK_TOKEN: $(FEEDSTOCK_TOKEN)
       STAGING_BINSTAR_TOKEN: $(STAGING_BINSTAR_TOKEN)
+
   - script: |
+      export ARTIFACT_STAGING_DIR="$(Build.ArtifactStagingDirectory)"
+      # Archive everything in CONDA_BLD_PATH except environments
+      export BLD_ARTIFACT_PREFIX=conda_artifacts
       export CI=azure
       export CI_RUN_ID=$(build.BuildNumber).$(system.JobAttempt)
+      export CONDA_BLD_PATH=$(build_workspace_dir)
       export FEEDSTOCK_NAME=$(basename ${BUILD_REPOSITORY_NAME})
-      export CONDA_BLD_DIR=/Users/runner/miniforge3/conda-bld
-      export ARTIFACT_STAGING_DIR="$(Build.ArtifactStagingDirectory)"
-      # Archive everything in CONDA_BLD_DIR except environments
-      export BLD_ARTIFACT_PREFIX=conda_artifacts
+      export MINIFORGE_HOME=$(tools_install_dir)
       if [[ "$AGENT_JOBSTATUS" == "Failed" ]]; then
-        # Archive the CONDA_BLD_DIR environments only when the job fails
+        # Archive the CONDA_BLD_PATH environments only when the job fails
         export ENV_ARTIFACT_PREFIX=conda_envs
       fi
       ./.scripts/create_conda_build_artifacts.sh
     displayName: Prepare conda build artifacts
-    condition: succeededOrFailed()
+    condition: and(succeededOrFailed(), eq(variables.store_build_artifacts, true))
 
   - task: PublishPipelineArtifact@1
     displayName: Store conda build artifacts
