@@ -8,7 +8,7 @@
 
 package:
   name: {{ name|lower }}
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://ftp.gromacs.org/gromacs/gromacs-{{ version }}.tar.gz
