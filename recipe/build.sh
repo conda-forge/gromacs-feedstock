@@ -60,6 +60,10 @@ for simdflavor in "${simdflavors[@]}" ; do
       cmake_args+=(
         -DGMX_GPU=CUDA
         -DCMAKE_CXX_FLAGS="-I$CONDA_PREFIX/include"
+        # Link against the shared CUDA runtime instead of nvcc's default
+        # static link, so the CUDA enhanced/minor-version compatibility
+        # provided by the individual cuda-cudart package actually applies.
+        -DCMAKE_CUDA_RUNTIME_LIBRARY=Shared
       )
   fi
   if [[ "$(uname)" == 'Darwin' ]] ; then

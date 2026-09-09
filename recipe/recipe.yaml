@@ -1,0 +1,135 @@
+# Update from download page, e.g. https://manual.gromacs.org/documentation/2021/download.html
+# For latest release, see
+# https://manual.gromacs.org/documentation/
+schema_version: 1
+
+context:
+  name: gromacs
+  version: "2026.3"
+  build: 1
+
+package:
+  name: ${{ name | lower }}
+  version: ${{ version }}
+
+source:
+  url: https://ftp.gromacs.org/gromacs/gromacs-${{ version }}.tar.gz
+  sha256: 1094b7bbc6a3960223827114626657110b40096cdf9598a727935fc84ebf8aa0
+
+build:
+  number: ${{ build + 100 if (mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None") else build }}
+  string: >-
+    ${{ ("nompi_h" ~ hash ~ "_" ~ build_number) if (mpi == 'nompi' and double == 'no' and cuda_compiler_version == "None")
+    else ("mpi_" ~ mpi ~ "_h" ~ hash ~ "_" ~ build_number) if (mpi != 'nompi' and double == 'no' and cuda_compiler_version == "None")
+    else ("mpi_" ~ mpi ~ "_cuda_h" ~ hash ~ "_" ~ build_number) if (mpi != 'nompi' and double == 'no' and cuda_compiler_version != "None")
+    else ("nompi_dblprec_h" ~ hash ~ "_" ~ build_number) if (mpi == 'nompi' and double == 'yes' and cuda_compiler_version == "None")
+    else ("mpi_" ~ mpi ~ "_dblprec_h" ~ hash ~ "_" ~ build_number) if (mpi != 'nompi' and double == 'yes' and cuda_compiler_version == "None")
+    else ("nompi_cuda_h" ~ hash ~ "_" ~ build_number) }}
+  skip:
+    - win
+    - mpi == "openmpi" and arm64
+    - double == "yes" and cuda_compiler_version != "None"
+    # fails with: /usr/local/cuda/lib64/libcudart_static.a: error adding symbols: file in wrong format
+    - ppc64le and double == "no" and cuda_compiler_version != "None"
+
+requirements:
+  ignore_run_exports:
+    by_name:
+      - if: cuda_compiler_version != "None"
+        then: cuda-version
+    from_package:
+      - if: cuda_compiler_version != "None"
+        then:
+          - cuda-cudart-dev
+          - libcufft-dev
+  build:
+    - make
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - if: cuda_compiler_version != "None"
+      then: ${{ compiler('cuda') }}
+    - ${{ stdlib("c") }}
+    - cmake >=3.28
+    - pocl
+    - python >=3.7
+    - perl
+    - if: linux
+      then: libgomp
+    - if: osx
+      then: llvm-openmp
+    - if: cuda_compiler_version != "None"
+      then: coreutils
+  host:
+    - if: linux and cuda_compiler_version == "None"
+      then: ocl-icd
+    - if: cuda_compiler_version != "None"
+      then:
+        - cuda-version ==${{ cuda_compiler_version }}
+        - cuda-cudart-dev
+        - cuda-profiler-api
+        - libcufft-dev
+    - if: osx
+      then: khronos-opencl-icd-loader
+    - libhwloc 2.*
+    - fftw
+    - if: mpi != 'nompi'
+      then: ${{ mpi }}
+  run:
+    - if: linux and cuda_compiler_version == "None"
+      then: ocl-icd
+    - if: cuda_compiler_version != "None"
+      then:
+        - ${{ pin_compatible('cuda-version', lower_bound='x', upper_bound='x') }}
+        # 12.1 matches GMX_CUDA_MINIMUM_REQUIRED_VERSION in CMakeLists.txt
+        - cuda-version >=12.1
+        - cuda-cudart
+        - libcufft
+        - __cuda
+    - if: osx
+      then:
+        - khronos-opencl-icd-loader
+        - ocl_icd_wrapper_apple
+    - fftw
+    - libhwloc 2.*
+    - if: mpi != 'nompi'
+      then: ${{ mpi }}
+
+tests:
+  - script:
+      - if: mpi == 'nompi' and double == 'no'
+        then: gmx -version
+      - if: mpi == 'nompi' and double == 'yes'
+        then: gmx_d -version
+      - if: mpi == "openmpi" and linux
+        then:
+          - export OMPI_MCA_plm=isolated
+          - export OMPI_MCA_btl_vader_single_copy_mechanism=none
+          - export OMPI_MCA_rmaps_base_oversubscribe=yes
+      - if: mpi != 'nompi' and double == 'no'
+        then: gmx_mpi -version
+      - if: mpi != 'nompi' and double == 'yes'
+        then: gmx_mpi_d -version
+
+about:
+  license: LGPL-2.1-or-later
+  license_file: COPYING
+  summary: GROMACS is a versatile package to perform molecular dynamics.
+  description: |
+    GROMACS is a versatile package to perform molecular dynamics, i.e.
+    simulate the Newtonian equations of motion for systems with hundreds
+    to millions of particles. It is primarily designed for biochemical
+    molecules like proteins, lipids and nucleic acids that have a lot of
+    complicated bonded interactions, but since GROMACS is extremely fast
+    at calculating the nonbonded interactions (that usually dominate
+    simulations) many groups are also using it for research on
+    non-biological systems, e.g. polymers.
+  homepage: https://www.gromacs.org/
+  repository: https://gitlab.com/gromacs/gromacs
+  documentation: https://manual.gromacs.org/
+
+extra:
+  recipe-maintainers:
+    - douglowe
+    - jan-janssen
+    - mabraham
+    - simonbray
