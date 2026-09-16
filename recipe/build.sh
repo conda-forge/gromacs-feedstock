@@ -172,7 +172,7 @@ esac
 ### Bash script (for activate and for direct access through conda run)
 # Search first for AVX2, then AVX. Fall back on SSE2
 { cat <<EOF
-#! /bin/bash
+#! /usr/bin/env bash
 
 function _gromacs_bin_dir() {
   local simdflavor
